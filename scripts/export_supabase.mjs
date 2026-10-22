@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {fileURLToPath} from 'node:url';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const context={window:{}};vm.runInNewContext(fs.readFileSync(root+'web/dist/data.js','utf8'),context);
+const d=context.window.CLAIMS_DATA;
+const quote=v=>'"'+String(v).replaceAll('"','""')+'"';
+const lines=[['id','month','patient','type','disease','cost','form','type_name','disease_name'],...d.rows.map((r,i)=>[i+1,...r,d.types[r[2]],d.diseases[r[3]]||r[3]])];
+fs.mkdirSync(root+'data',{recursive:true});
+fs.writeFileSync(root+'data/dashboard_claims.csv','\ufeff'+lines.map(r=>r.map(quote).join(',')).join('\r\n'));
+console.log(`Exported ${d.rows.length} synthetic course rows to data/dashboard_claims.csv`);
