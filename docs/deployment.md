@@ -1,19 +1,18 @@
 # GitHub Pages 배포
 
-소스와 제출 파일은 이 저장소에 있으며 `.github/workflows/pages.yml`이 `web/dist`를 배포합니다.
+2026-10-23 확인: 기존 실행은 테스트·빌드에 성공했으나 configure-pages에서 **Pages site Not Found**로 실패했다. 현재 저장소는 비공개이며 공개 URL은 아직 검증되지 않았다.
 
-1. 저장소 소유자 계정으로 [Settings → Pages](https://github.com/EMEM-Kim/nano_dee/settings/pages)를 엽니다.
-2. Build and deployment의 Source를 **GitHub Actions**로 선택합니다.
-3. [Actions](https://github.com/EMEM-Kim/nano_dee/actions)에서 **Publish dashboard**를 선택하고 **Run workflow → main**을 실행합니다. 이전 실행이 실패했다면 설정 후 재실행합니다.
-4. 배포 단계가 초록색으로 끝난 뒤 아래 URL을 열어 KPI와 필터를 확인합니다.
+## 최초 설정
+1. [Settings → Pages](https://github.com/EMEM-Kim/nano_dee/settings/pages)에서 사용 가능 여부를 확인한다. GitHub Free는 공개 저장소에서 Pages를 지원하며, 비공개 저장소는 Pro 등 지원 요금제가 필요하다. 저장소 공개 여부는 소유자가 결정한다.
+2. Build and deployment → Source를 **GitHub Actions**로 선택한다.
+3. [Actions](https://github.com/EMEM-Kim/nano_dee/actions)에서 **Dashboard checks and deployment → Run workflow → main**을 실행한다.
+4. deploy 작업이 성공하면 아래 주소를 열어 확인한 뒤 제출한다.
 
 | 용도 | 배포 후 주소 |
 |---|---|
-| 1일차 그래프 | https://EMEM-Kim.github.io/nano_dee/graph.html |
-| 2·3일차 대시보드 | https://EMEM-Kim.github.io/nano_dee/dashboard.html |
+| 그래프 | https://EMEM-Kim.github.io/nano_dee/graph.html |
+| 대시보드 | https://EMEM-Kim.github.io/nano_dee/dashboard.html |
 
-현재 환경에서는 저장소 파일 쓰기는 가능하지만 Pages 설정 API가 제공되지 않고 브라우저도 로그인되어 있지 않습니다. 위 설정이 완료되기 전 URL을 공개 완료로 제출하지 않습니다.
+push 때는 검사·빌드만 실행하며, 실제 배포는 Run workflow로 실행한다. _site 폴더에는 HTML 3개만 담아 SQL·문서를 사이트에 함께 배포하지 않는다.
 
-## Actions 파일 업로드가 제한된 경우
-
-GitHub 연결 권한에 따라 워크플로 파일 쓰기가 제한될 수 있습니다. 이 경우 **Source: Deploy from a branch → main → /(root)**를 선택하면 루트의 `index.html`, `dashboard.html`, `graph.html`로 배포할 수 있습니다. 루트 파일은 제출용 파일과 동일하게 생성됩니다.
+현재 GitHub 연결 도구는 Pages 설정 변경을 지원하지 않아 소유자 계정의 위 설정이 필요하다. [공식 Pages 지원 범위](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)

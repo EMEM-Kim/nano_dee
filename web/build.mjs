@@ -2,13 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.dirname(fileURLToPath(import.meta.url));
-const dist=path.join(root,'dist'),read=n=>fs.readFileSync(path.join(dist,n),'utf8');
+const source=path.join(root,'src'),dist=path.join(root,'..'),read=n=>fs.readFileSync(path.join(source,n),'utf8');
 // Prefer the course's institution category label over the legacy insurer label.
 const data=read('data.js').replace('종합전문병원,상급종합병원','상급종합병원');
-fs.writeFileSync(path.join(dist,'data.js'),data);
+
 const css=read('styles.css'),app=read('app.js');
 const html=read('index.template.html').replace('/* STYLES */',css).replace('/* DATA */',()=>data).replace('/* APP */',()=>app);
-for(const name of ['index.html','dashboard.html'])fs.writeFileSync(path.join(dist,name),html);
+fs.writeFileSync(path.join(dist,'dashboard.html'),html);
 const s=JSON.parse(fs.readFileSync(path.join(root,'analysis.json'),'utf8'));
 const points=Object.entries(s.monthly_respiratory),W=960,H=310,L=55,T=30,B=50,R=20,w=W-L-R,h=H-T-B,x=i=>L+i*w/(points.length-1),y=v=>T+h-v/1000*h;
 let svg=`<svg class="line-chart" role="img" aria-label="2024~2025년 월별 호흡기 질환 청구 건수" viewBox="0 0 ${W} ${H}"><title>호흡기 질환 청구 건수의 계절성</title>`;
@@ -20,7 +20,5 @@ const graph=`<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta na
 fs.writeFileSync(path.join(dist,'graph.html'),graph);
 console.log('Built index.html, dashboard.html, graph.html');
 
-const live=read('index.template.html').replace('/* STYLES */',css).replace('/* DATA */','').replace('/* APP */','').replace('<body>','<body><div id="connection-status" role="status" style="padding:16px;background:#e7f3ef">Supabase 데이터 조회 중…</div>').replace('</body>','<script src="config.js"></script><script src="supabase-loader.js"></script></body>');
-fs.writeFileSync(path.join(dist,'live.html'),live);
-// Keep the branch-based Pages fallback in sync with the generated submission files.
-for(const name of ['index.html','dashboard.html','graph.html']) fs.copyFileSync(path.join(dist,name),path.join(root,'..',name));
+const output=path.join(dist,'_site');fs.mkdirSync(output,{recursive:true});
+for(const name of ['index.html','dashboard.html','graph.html']) fs.copyFileSync(path.join(dist,name),path.join(output,name));

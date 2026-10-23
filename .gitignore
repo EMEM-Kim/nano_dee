@@ -1,6 +1,6 @@
 data/
+_site/
 node_modules/
 __pycache__/
 .env*
 *.log
-mysql-test/

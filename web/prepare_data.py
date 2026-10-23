@@ -28,7 +28,7 @@ assert all(r['yid'] in inst for r in claims),'Unmatched institution'
 assert all(r[4]>=0 for r in rows)
 used={r[3] for r in rows}
 payload={'source':'https://docs.google.com/spreadsheets/d/1nPuY8AKFAs2r9da4xUBV3WMKdLEBZJGpmd3kP7xKNvU','retrieved':'2026-10-22','columns':['month','patient','type','disease','cost','form'],'rows':rows,'types':{k:v for k,v in cl_names.items() if k in {r[2] for r in rows}},'diseases':{k:names.get(k,k) for k in used},'counts':{'claim':len(claims),'institution':len(institutions),'sick_master':len(diseases)}}
-(root/'dist'/'data.js').write_text('window.CLAIMS_DATA='+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';',encoding='utf-8')
+(root/'src'/'data.js').write_text('window.CLAIMS_DATA='+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';',encoding='utf-8')
 monthly=collections.Counter(r[0] for r in rows if r[3].startswith('J'))
 summary={'claims':len(rows),'total_cost':sum(r[4] for r in rows),'patients':len({r[1] for r in rows}),'top_diseases':collections.Counter(r[3] for r in rows).most_common(10),'monthly_respiratory':dict(sorted(monthly.items())),'types':{},'source_counts':payload['counts']}
 for k,v in payload['types'].items():
