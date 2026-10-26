@@ -16,7 +16,7 @@
 | `web/analysis.json` | 원자료의 독립 집계 |
 | `web/prepare_data.py` | XLSX 추출·조인·검산 |
 | `web/build.mjs` | 제출 HTML과 배포용 _site 생성 |
-| `scripts/test_web.mjs` | 핵심 지표·필터 계산 검증 |
+| `web/test.mjs` | 핵심 지표·필터 계산 검증 |
 
 ## 지표 정의
 
@@ -30,16 +30,16 @@ claim과 institution은 yid, 상병명은 main_sick와 sickcd로 연결했다. �
 
 브라우저로 루트의 HTML을 열면 오프라인에서도 실행된다. Node.js 22 이상에서 다음 명령을 실행한다.
 ```sh
-node scripts/test_web.mjs
+node web/test.mjs
 node web/build.mjs
 ```
 
 원자료를 갱신하려면 강의 XLSX를 data/kr_claims.xlsx에 저장한 뒤 다음 명령을 실행한다.
 ```sh
-python -m pip install -r requirements.txt
+python -m pip install -r web/requirements.txt
 python web/prepare_data.py
 node web/build.mjs
-node scripts/test_web.mjs
+node web/test.mjs
 ```
 검산값은 제공된 스냅샷 기준이므로 원자료 변경 시 차이를 검토해야 한다.
 

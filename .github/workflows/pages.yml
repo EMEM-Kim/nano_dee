@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/test_web.mjs
+      - run: node web/test.mjs
       - run: node web/build.mjs
       - uses: actions/upload-pages-artifact@v3
         with:

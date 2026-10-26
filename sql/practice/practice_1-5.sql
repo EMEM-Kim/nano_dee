@@ -58,7 +58,7 @@ SELECT COUNT(*) AS not_returned FROM (
 -- 심화: 3회 이상 내원자의 평균 간격 상위 10명.
 SELECT jid,COUNT(*) AS visits,ROUND(AVG(gap_days),1) AS average_gap
 FROM hypertension_visits GROUP BY jid HAVING COUNT(*)>=3 ORDER BY average_gap DESC,jid LIMIT 10;
--- 심화: 당뇨병으로 조건 변경한 결과는 assignment_2.sql Q3.
+-- 심화: 당뇨병으로 조건 변경한 결과는 sql/assignments/assignment_2.sql Q3.
 
 
 -- 실습 4
