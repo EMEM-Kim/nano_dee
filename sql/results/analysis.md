@@ -13,8 +13,8 @@ MySQL **8.4.11**에서 2026-10-22에 실행한 결과를 정리했다. 강의 SQ
 
 1. [강의 데이터 폴더](https://drive.google.com/drive/folders/1zM91ATIR5OSxSAlfF442GDovxkQ8f7tP)에서 원본 SQL 01~04를 받는다.
 2. 별도 실습용 MySQL에 `01_setup.sql → 02_claim.sql → 03_sick_master.sql → 04_lung.sql` 순서로 실행한다. **01_setup은 같은 이름의 DB를 초기화하므로 기존 작업 DB에 실행하지 않는다.**
-3. [실습 1~5](../sql/practice/practice_1-5.sql)와 [과제 1](../sql/assignments/assignment_1.sql)·[2](../sql/assignments/assignment_2.sql)·[3](../sql/assignments/assignment_3.sql)를 실행한다. 파일 안에 데이터베이스를 지정하는 USE 문이 있다.
-4. [실제 실행 출력](../sql/results/results.txt)과 비교한다. 실습 파일은 분석용 뷰 3개를 생성·갱신한다.
+3. [실습 1~5](../practice/practice_1-5.sql)와 [과제 1](../assignments/assignment_1.sql)·[2](../assignments/assignment_2.sql)·[3](../assignments/assignment_3.sql)를 실행한다. 파일 안에 데이터베이스를 지정하는 USE 문이 있다.
+4. [실제 실행 출력](../results/results.txt)과 비교한다. 실습 파일은 분석용 뷰 3개를 생성·갱신한다.
 
 검증 당시 01·04 SQL 원본을 적재했고, claim·sick_master는 같은 강의 XLSX 시트에서 적재했다. 청구 38,375건·폐암 9,897명과 과제 기준 건수를 확인했다.
 

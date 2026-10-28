@@ -12,4 +12,4 @@ SELECT c.mid,c.main_sick,s.krnm,c.vst_ddcnt,c.recu_fr_dd,c.recu_to_dd
 FROM claim c LEFT JOIN sick_master s ON s.sickcd=c.main_sick
 WHERE c.fom_tp_cd='021'
 ORDER BY c.vst_ddcnt DESC,c.mid LIMIT 10;
--- Q4 서술형 답안: docs/sql.md
+-- Q4 서술형 답안: sql/results/analysis.md

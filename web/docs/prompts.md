@@ -8,7 +8,7 @@
 
 ### HTML 코드
 
-결과 파일: [graph.html](../graph.html)
+결과 파일: [graph.html](../../graph.html)
 
 ### 재현용 프롬프트
 
