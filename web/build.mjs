@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.dirname(fileURLToPath(import.meta.url));
-const source=path.join(root,'src'),dist=path.join(root,'..'),read=n=>fs.readFileSync(path.join(source,n),'utf8');
+const source=path.join(root,'src'),dist=path.join(root,'output'),read=n=>fs.readFileSync(path.join(source,n),'utf8');
+fs.mkdirSync(dist,{recursive:true});
 // Prefer the course's institution category label over the legacy insurer label.
 const data=read('data.js').replace('종합전문병원,상급종합병원','상급종합병원');
 
@@ -20,5 +21,5 @@ const graph=`<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta na
 fs.writeFileSync(path.join(dist,'graph.html'),graph);
 console.log('Built index.html, dashboard.html, graph.html');
 
-const output=path.join(dist,'_site');fs.mkdirSync(output,{recursive:true});
+const output=path.join(root,'..','_site');fs.mkdirSync(output,{recursive:true});
 for(const name of ['index.html','dashboard.html','graph.html']) fs.copyFileSync(path.join(dist,name),path.join(output,name));

@@ -12,6 +12,7 @@ GitHub Actions에서 HTML을 빌드하고 GitHub Pages로 배포했다. 2026-10-
 - 워크플로 파일은 `.github/workflows/pages.yml`이다.
 - main에 push하면 지표 테스트와 HTML 빌드를 실행한다.
 - 수동 실행인 `workflow_dispatch`에서는 빌드 후 Pages 배포까지 실행한다.
+- 저장소의 HTML은 `web/output/`에 모았다. 빌드 시 해당 파일을 `_site/`의 루트로 복사하므로 공개 URL은 기존과 같다.
 - 배포 폴더 `_site`에는 `index.html`, `graph.html`, `dashboard.html`을 포함한다.
 - SQL과 Markdown 문서는 GitHub 저장소에서 확인한다.
 

@@ -55,7 +55,7 @@
 
 ### WEEK 4 · AI Agent 결과물 및 최종 정리
 
-- [x] 최종 결과물 정리 — [대시보드](dashboard.html), [그래프](graph.html)
+- [x] 최종 결과물 정리 — [대시보드](web/output/dashboard.html), [그래프](web/output/graph.html)
 - [x] GitHub 업로드 — [웹 소스와 문서](web/)
 - [x] README 작성 — [10개 항목의 AI 활용 README](web/README.md)
 - [x] 4주간 학습 결과 작성 — [학습 정리](reports/learning-summary.md)
@@ -69,7 +69,7 @@
 | `sql/` | SQL README, 실습, 과제, 실행 출력과 분석 결과 |
 | `web/` | AI 활용 README, 웹 소스, 전처리·테스트·빌드, 제작 문서 |
 | `reports/` | 최종 결과 문서와 4주간 학습 정리 |
-| `dashboard.html`, `graph.html`, `index.html` | 기존 제출 URL과 연결되는 최종 HTML |
+| `web/output/` | 최종 HTML 3개 · 배포 시 기존 제출 URL 유지 |
 | `.github/` | 검사·배포 자동화 |
 
 SQL 설명은 `sql/README.md`, AI 활용 설명은 `web/README.md`에서 시작한다. 회고·프롬프트·배포 문서는 `web/docs/`, SQL 상세 결과는 `sql/results/`로 모았다.

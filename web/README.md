@@ -73,8 +73,8 @@ node web/build.mjs
 
 [공개 대시보드](https://emem-kim.github.io/nano_dee/dashboard.html) · [공개 그래프](https://emem-kim.github.io/nano_dee/graph.html)
 
-- [dashboard.html](../dashboard.html): KPI·차트·필터를 포함한 결과물
-- [graph.html](../graph.html): 호흡기 질환의 계절별 청구 그래프
+- [dashboard.html](output/dashboard.html): KPI·차트·필터를 포함한 결과물
+- [graph.html](output/graph.html): 호흡기 질환의 계절별 청구 그래프
 - 급성 기관지염(J209)이 5,285건으로 가장 많았다.
 - 호흡기 청구의 11~3월 월평균은 6~9월의 약 2.17배였다.
 

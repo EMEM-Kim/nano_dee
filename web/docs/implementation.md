@@ -6,9 +6,9 @@
 
 | 경로 | 역할 |
 |---|---|
-| `graph.html` | 1일차 제출용 단독 그래프 |
-| `dashboard.html` | 2·3일차 대시보드, CSS·데이터·JS 포함 |
-| `index.html` | 기본 주소에서 dashboard.html로 이동 |
+| `web/output/graph.html` | 1일차 제출용 단독 그래프 |
+| `web/output/dashboard.html` | 2·3일차 대시보드, CSS·데이터·JS 포함 |
+| `web/output/index.html` | 기본 주소에서 dashboard.html로 이동 |
 | `web/src/index.template.html` | 화면 구조 |
 | `web/src/styles.css` | 디자인·반응형 스타일 |
 | `web/src/app.js` | 집계·필터·차트·CSV |
@@ -28,7 +28,7 @@ claim과 institution은 yid, 상병명은 main_sick와 sickcd로 연결했다. �
 
 ## 실행
 
-브라우저로 루트의 HTML을 열면 오프라인에서도 실행된다. Node.js 22 이상에서 다음 명령을 실행한다.
+브라우저로 `web/output/`의 HTML을 열면 오프라인에서도 실행된다. Node.js 22 이상에서 다음 명령을 실행한다.
 ```sh
 node web/test.mjs
 node web/build.mjs
