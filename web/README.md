@@ -14,7 +14,7 @@ AI 코딩 에이전트인 **ChatGPT Codex**를 활용해 건강보험 청구 현
 
 | 기술 | 역할 |
 |---|---|
-| ChatGPT Codex | AI 코딩 에이전트를 활용한 제작·수정·검증 |
+| Cloude Agent | AI 코딩 에이전트를 활용한 제작·수정·검증 |
 | Python, openpyxl | 강의 XLSX 읽기와 코드 연결, 독립 집계 |
 | HTML, CSS, JavaScript, SVG | KPI·차트·필터·CSV 구현 |
 | Node.js | HTML 빌드와 집계 테스트 |
