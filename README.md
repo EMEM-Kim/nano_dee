@@ -68,7 +68,6 @@ SQL 실습과 과제, 청구 현황 대시보드, 학습 기록을 함께 관리
 | 데이터 조회·분석 | SQL, MySQL 8.4 |
 | 데이터 전처리 | Python, openpyxl |
 | 웹 시각화 | HTML, CSS, JavaScript, SVG |
-| 제작 지원 | ChatGPT Codex |
 | 검증·빌드 | Node.js |
 | 버전 관리·배포 | GitHub, GitHub Actions, GitHub Pages |
 
